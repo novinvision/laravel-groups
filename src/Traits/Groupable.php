@@ -13,9 +13,19 @@ trait Groupable
 
     protected array $queuedGroups = [];
 
+    public function groupModel(): string
+    {
+        return config('laravel-group.model');
+    }
+
+    public function groupItemModel(): string
+    {
+        return GroupItem::class;
+    }
+
     public function groups()
     {
-        return $this->morphToMany(Group::class, 'item', GroupItem::class);
+        return $this->morphToMany($this->groupModel(), 'item', $this->groupItemModel());
     }
 
     public static function bootGroupable()
@@ -38,7 +48,7 @@ trait Groupable
 
     public function syncGroups(string|array|Arrayable $groups, string $field = 'id'): static
     {
-        $groups = \App\Models\Group::query()->whereIn($field, $groups)->get();
+        $groups = Group::query()->whereIn($field, $groups)->get();
         $this->groups()->sync($groups->pluck('id')->toArray());
         return $this;
     }

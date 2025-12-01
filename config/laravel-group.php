@@ -8,7 +8,7 @@ return [
     |--------------------------------------------------------------------------
     */
 
-    'model' => \NovinVision\LaravelGroups\Models\Group::class,
+    'model' => \NovinVision\laravelGroup\Models\Group::class,
 
     /*
     |--------------------------------------------------------------------------
