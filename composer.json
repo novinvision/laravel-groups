@@ -1,0 +1,27 @@
+{
+    "name": "novinvision/laravel-groups",
+    "description": "A laravel package group models",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Novin Vision",
+            "email": "novinvision.com@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NovinVision\\laravelGroup\\": "src/"
+        }
+    },
+    "require": {
+        "laravel/framework": ">10.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NovinVision\\laravelGroup\\laravelGroupServiceProvider"
+            ]
+        }
+    }
+}
